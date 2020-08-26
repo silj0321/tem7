@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 25px;
+            margin-left: 30px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-left: 30px;
+        }
+
+        article {
+            margin-left: 30px;
+        }
+
+        #billeder {
+            display: flex;
+        }
+
+        @media (max-width: 600px) {
+            #billeder {
+                flex-wrap: wrap;
+            }
+
+            footer {
+                margin: 0;
+            }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Overskrift</h1>
+    </header>
+    <h2>Undertitel</h2>
+    <section id="billeder">
+        <article>
+            <img src="billede1.png" alt="">
+            <h3>Article 1</h3>
+            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</a>
+
+        </article>
+        <article>
+            <img src="billede2.png" alt="">
+            <h3>Article 2</h3>
+            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</a>
+
+        </article>
+    </section>
+
+    <footer>
+        <p>Dett er en footer</p>
+    </footer>
+
+
+    <script>
+        //Øvelse 5
+
+        document.addEventListener('DOMContentLoaded', (start));
+
+        function start() {
+            console.log('DOM fully loaded and parsed');
+        }
+
+    </script>
+</body>
+
+</html>
