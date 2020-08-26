@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Find ud af om din date og din alder passer sammen</h1>
+    <p>Indtast din alder</p>
+
+    <input type="text" id="din_alder">
+
+    <p>Din dates alder</p>
+
+    <input type="text" id="date_alder">
+
+    <button>Klik og se om jeres aldre matcher - kig i konsollen</button>
+
+
+    <script>
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            let dinAlder = document.querySelector("#din_alder").value;
+            let dateAlder = document.querySelector("#date_alder").value;
+            let ideelDateAlder = dinAlder / 2 + 7;
+            let dinIdeelAlder = dateAlder / 2 + 7;
+            let resultat;
+
+            if (dinAlder < 15) {
+                resultat = "Du er ikke gammel nok til at date...";
+            } else if (dateAlder < 15) {
+                resultat = "Din date er bestemt for ung til dig!!";
+            } else if (dateAlder == ideelDateAlder) {
+                resultat = "Jeres alder matcher perfekt!";
+            } else if (dinAlder == dinIdeelAlder) {
+                resultat = "Jeres alder matcher perfekt!";
+            } else {
+                resultat = "Jeres alder matcher desværre ikke...";
+            }
+
+        }
+
+        //Kunne ikke få til at virke optimalt................ øv
+
+    </script>
+</body>
+
+</html>
