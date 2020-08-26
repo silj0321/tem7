@@ -12,6 +12,10 @@
             line-height: 150%;
         }
 
+        .typo2 {
+            font-size: 30px;
+        }
+
     </style>
 
 </head>
@@ -31,24 +35,44 @@
 
 
     <script>
+        //tjek om DOMen er loaded
         document.addEventListener('DOMContentLoaded', (start));
 
+        //når DOMen er loaded laves functionen click på alle p-tagsne, som tilføjer classen typo som ændrer fonten
         function start() {
             console.log('DOM fully loaded and parsed');
 
-            const alle = document.querySelectorAll("p");
-            alle.forEach(p => {
+            const alleP = document.querySelectorAll("p");
+            alleP.forEach(p => {
                 p.addEventListener("click", () => {
                     p.classList.add("typo");
                 })
             })
-
+            //for at resette ændringerne på p-tagsne, skal classen typo kunne fjernes igen
 
             document.querySelector("button").addEventListener("click", () => {
-                alle.forEach(p => {
+                alleP.forEach(p => {
                     p.classList.remove("typo");
                 })
             })
+
+            // fordoble h3s størrelse ved click
+
+            const alleH = document.querySelectorAll("h3");
+            alleH.forEach(h3 => {
+                h3.addEventListener("click", () => {
+                    h3.classList.add("typo2");
+                })
+            })
+            // for at resette, gøres det samme som med p-tagsne, bare med h3erne
+
+            document.querySelector("button").addEventListener("click", () => {
+                alleH.forEach(h3 => {
+                    h3.classList.remove("typo2");
+                })
+            })
+
+
         }
 
     </script>
