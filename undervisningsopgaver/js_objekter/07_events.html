@@ -8,8 +8,18 @@
     <link rel="stylesheet" href="">
 
     <style>
+        img {
+            width: 400px;
+            height: auto;
+        }
+
         article {
             border: 1px solid black;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
         }
 
     </style>
@@ -22,56 +32,80 @@
     </section>
     <template>
         <article>
+            <h3>OffStream</h3>
             <h2></h2>
-            <p class="art"></p>
-            <p class="sted"></p>
+            <p class="Na"></p>
+            <p class="La"></p>
+            <p class="Inst"></p>
+            <p class="Konk"></p>
+            <p class="Ge"></p>
+            <p class="Va"></p>
+            <p class="Pro"></p>
             <img src="" alt="">
         </article>
     </template>
 
 
+
     <script>
-        let dyr = [{
-            "navn": "gris",
-            "type": "pattedyr",
-            "levested": "svinesti",
-            "billede": "http://mabe-kea.dk/E19/pics/pig.png"
+        let film = [{
+            "Navn": "A Calling",
+            "Land": "Danmark",
+            "Instruktør": "Christian Bengtson",
+            "Konkurrence": "Den Danske Konkurrence, Ungdomskonkurrencen",
+            "Genre": "Fiktion",
+            "Varighed": "20 min",
+            "Produktionsår": "2019",
+            "Billede": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W6dOqabNhHKBPXxxKKEZRA84-720.jpg"
         }, {
-            "navn": "frø",
-            "type": "amfibie",
-            "levested": "moser",
-            "billede": "http://mabe-kea.dk/E19/pics/frog.png"
+            "Navn": "A Hole in My Heart",
+            "Land": "Holland",
+            "Instruktør": "Mees Peijnenburg",
+            "Konkurrence": "Hovedkonkurrencen",
+            "Genre": "Fiktion",
+            "Varighed": "9 min",
+            "Produktionsår": "2015",
+            "Land": "Holland",
+            "Billede": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/Q8K1pZrOs03Q0IrDkBwGVu5r-720.jpg"
         }, {
-            "navn": "ræv",
-            "type": "pattedyr",
-            "levested": "skoven",
-            "billede": "http://mabe-kea.dk/E19/pics/fox.png"
+            "Navn": "A Place In The Sun - 110 years after the genocide",
+            "Land": "Tyskland",
+            "Instruktør": "Christian Zipfel",
+            "Konkurrence": "Dokumentarkonkurrencen",
+            "Genre": "Dokumentar",
+            "Varighed": "20 min",
+            "Produktionsår": "2018",
+            "Billede": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/hUd4SdGQ8I23ovxWnGtBz4Ck-720.jpg",
         }, {
-            "navn": "sild",
-            "type": "fisk",
-            "levested": "vand",
-            "billede": "http://mabe-kea.dk/E19/pics/sild.jpg"
-        }, {
-            "navn": "krokodille",
-            "type": "krybdyr",
-            "levested": "sump",
-            "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg"
+            "Navn": "A Tower of Two",
+            "Land": "Danmark",
+            "Instruktør": "Jacob Krzysztof Glogowski",
+            "Konkurrence": "Den Danske Konkurrence",
+            "Genre": "Fiktion",
+            "Varighed": "21 min",
+            "Produktionsår": "2019",
+            "Billede": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/Zdt2ODEqSVOkNe8nUaSSu8kd.jpg"
         }];
+
 
         let container = document.querySelector("section");
         let temp = document.querySelector("template");
         document.addEventListener('DOMContentLoaded', start);
 
         function start() {
-            console.log(dyr);
+            console.log(film);
             const listevisning = document.querySelector("#liste");
 
-            dyr.forEach(dyrene => {
+            film.forEach(filmvisning => {
                 let klon = temp.cloneNode(true).content;
-                klon.querySelector("h2").textContent = dyrene.navn;
-                klon.querySelector(".art").textContent = dyrene.type;
-                klon.querySelector(".sted").textContent = dyrene.levested;
-                klon.querySelector("img").src = dyrene.billede;
+                klon.querySelector("h2").textContent = filmvisning.Navn;
+                klon.querySelector(".La").textContent = filmvisning.Land;
+                klon.querySelector(".Inst").textContent = filmvisning.Instruktør;
+                klon.querySelector(".Konk").textContent = filmvisning.Konkurrence;
+                klon.querySelector(".Ge").textContent = filmvisning.Genre;
+                klon.querySelector(".Va").textContent = filmvisning.Varighed;
+                klon.querySelector(".Pro").textContent = filmvisning.Produktionsår;
+                klon.querySelector("img").src = filmvisning.Billede;
                 container.appendChild(klon);
             })
 
