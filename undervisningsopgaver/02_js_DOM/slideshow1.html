@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow 1</title>
+    <link rel="stylesheet" href="">
+</head>
+<style>
+    img {
+        width: 550px;
+        height: 550px;
+    }
+
+</style>
+
+<body>
+    <h1> Tro på det.. </h1>
+    <img src="img1.jpg" alt="">
+    <button>Videre</button>
+    <p>Billeder venligst udlånt af Pixabay</p>
+
+    <script>
+        //lav en tæller
+        let number = 0;
+        //find billede
+        const billede = document.querySelector("img");
+        //opret array
+        let billeder = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg"]
+        // klik på knap for at skifte billede
+        const knap = document.querySelector("button");
+        knap.addEventListener("click", skiftBillede);
+        //opret funktion til at skifte billede
+
+        function skiftBillede() {
+            // tæl op
+            number++;
+            //så længe billedet er mindre end hele array-listen (sidste nummer i listen), så skal billedet skifte - dvs man stopper efter 4. billede, fordi det er enden på array listen
+
+            if (number < 4) {
+                console.log(billeder[number]);
+
+                // tilføj source med det billede der er næste i arrayet hver gang man trykker videre/tælleren tæller 1 op
+                billede.src = billeder[number];
+            }
+            //obs! hvis billederne fx ligger inde i en mappe, skal man sørge for at få stringen med: billede.src = "billeder/"+billeder[number];
+
+        }
+
+    </script>
+</body>
+
+</html>
