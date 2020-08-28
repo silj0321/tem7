@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+
+    <style>
+        img {
+            max-width: 100%;
+        }
+
+        article {
+            border: 5px solid black;
+            border-radius: 20px;
+            border-color: deeppink;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        h1 {
+            font-family: cursive;
+            margin: 0 auto;
+            padding: 20px;
+
+        }
+
+        h2 {
+            font-family: cursive;
+        }
+
+        p {
+            font-family: monospace;
+        }
+
+        #titel {
+            display: flex;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="titel">
+        <h1>Persongalleri</h1>
+    </div>
+    <section>
+
+        <template>
+            <article>
+                <h2 class="navn"></h2>
+                <p class="efternavn"></p>
+                <p class="køn"></p>
+                <p class="alder"></p>
+                <p class="religion"></p>
+                <p class="hobby"></p>
+                <p class="kæledyr"></p>
+                <p class="job"></p>
+                <p class="by"></p>
+                <p class="land"></p>
+                <img src="" alt="">
+            </article>
+        </template>
+
+    </section>
+
+
+    <script>
+        let container = document.querySelector("section");
+        let temp = document.querySelector("template");
+        const fil = "https://spreadsheets.google.com/feeds/list/1mtHhpoEkYqVqr1TSnKQ1_sQZWI7FRVjcw3H1oatDOVQ/od6/public/values?alt=json";
+
+        async function hentdata() {
+            const resultat = await fetch(fil);
+            const json = await resultat.json();
+            vis(json);
+            console.log(resultat);
+        }
+
+        function vis(personer) {
+            console.log(personer);
+
+            personer.feed.entry.forEach(personer => {
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("h2").textContent = `Navn: ${personer.gsx$navn.$t}`;
+                klon.querySelector(".efternavn").textContent = `Efternavn: ${personer.gsx$efternavn.$t}`;
+                klon.querySelector(".køn").textContent = `Køn: ${personer.gsx$køn.$t}`;
+                klon.querySelector(".alder").textContent = `Alder: ${personer.gsx$alder.$t}`;
+                klon.querySelector(".religion").textContent = `Religion: ${personer.gsx$religion.$t}`;
+                klon.querySelector(".hobby").textContent = `Hobby: ${personer.gsx$hobby.$t}`;
+                klon.querySelector(".kæledyr").textContent = `Kæledyr: ${personer.gsx$kæledyr.$t}`;
+                klon.querySelector(".job").textContent = `Job: ${personer.gsx$job.$t}`;
+                klon.querySelector(".by").textContent = `By: ${personer.gsx$by.$t}`;
+                klon.querySelector(".land").textContent = `Land: ${personer.gsx$land.$t}`;
+                klon.querySelector("img").src = personer.gsx$billede.$t;
+                container.appendChild(klon);
+            })
+        }
+
+        hentdata();
+
+    </script>
+</body>
+
+</html>
