@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bistro Babushka | Food from Russia with Love</title>
+    <style>
+        body {
+            background-color: white;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        article {
+            background-color: lightgray;
+            border-radius: 1px solid black;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            align-content: center;
+        }
+
+        #list {
+            background-color: white;
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+        }
+
+        #overskrift {
+            text-align: center;
+            margin-bottom: 50px;
+            margin-bottom: 50px;
+            background-color: rosybrown;
+            border-radius: 1px solid black;
+            padding: 30px;
+        }
+
+        footer {
+            background-color: rosybrown;
+            max-width: 100vw;
+            margin-top: 20px;
+            padding: 20px;
+            display: grid;
+            grid-gap: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+
+        footer p {
+            text-align: center;
+        }
+
+        h1 {
+            font-family: cursive;
+        }
+
+        h2,
+        h3,
+        p {
+            font-family: sans-serif;
+        }
+
+        header {
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            margin-bottom: 20px;
+        }
+
+        button {
+            border-radius: 1px solid black;
+            font-size: 20px;
+            background-color: linen;
+        }
+
+        button:focus {
+            color: orange;
+        }
+
+        #popop {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, .8);
+            display: none;
+        }
+
+        #popop article {
+            width: 70vw;
+            height: 70vh;
+            margin: 4rem auto;
+            background-color: white;
+
+        }
+
+        .container {
+            display: grid;
+            grid-gap: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            margin: 3rem auto;
+        }
+
+        .column {
+            padding: 10px;
+        }
+
+        #luk {
+            position: fixed;
+            margin-left: 70rem;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            padding: 1em;
+            z-index: 10;
+
+        }
+
+        #splash {
+            background-image: url(imgs/splash.png);
+            background-size: cover;
+            max-width: 100vw;
+            height: 420px;
+            overflow: hidden;
+        }
+
+        /************************ TABLET 600-900px *****************************/
+
+
+
+        @media only screen and (max-width: 900px) {
+            #splash {
+                background-image: url(imgs/splash-mini.png);
+                background-size: cover;
+                max-width: 900px;
+                height: 350px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+        }
+
+
+        /************************ MOBILVIEW 0-600px *****************************/
+        @media only screen and (max-width: 600px) {
+            #splash {
+                background-image: url(imgs/splash-mini.png);
+                background-size: cover;
+                max-width: 600px;
+                height: 230px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            #overskrift {
+                padding: 20px;
+                margin-bottom: 10px;
+            }
+
+            footer p {
+                font-size: 10px;
+            }
+
+            footer {
+                grid-gap: 5px;
+            }
+
+            #menu_boks p {
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section id="popop">
+        <article>
+            <button id="luk">luk</button>
+            <div class="container">
+                <img src="" alt="">
+                <div class="column">
+                    <h2 class="navn" id="navn"></h2>
+                    <p><span class="lang"></span></p>
+                    <p><em>Oprindelse: </em><span class="oprindelse"></span></p>
+                    <p><em>Kategori: </em><span class="kategori"></span> </p>
+                    <p><em>Pris: </em><span class="pris"></span></p>
+                </div>
+
+            </div>
+        </article>
+    </section>
+
+
+    <section id="forside">
+        <template>
+            <article id="menu_boks">
+                <h2 class="navn"></h2>
+                <img src="" alt="">
+                <p class="kort"></p>
+                <p class="pris"></p>
+
+            </article>
+        </template>
+    </section>
+
+
+    <section id="splash">
+
+    </section>
+
+    <h1 id="overskrift"><em>Food from Russia with Love</em></h1>
+    <h2 id="emne"></h2>
+    <header>
+        <button class="filter valgt" data-kategori="alle">Alle</button>
+        <button class="filter" data-kategori="forretter">Forretter</button>
+        <button class="filter" data-kategori="hovedretter">Hovedretter</button>
+        <button class="filter" data-kategori="desserter">Desserter</button>
+        <button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
+    </header>
+
+
+
+    <section id="list">
+
+
+    </section>
+    <footer>
+        <div>
+            <p>Adresse:<br> Grønnegade 97 <br> 1234 København K</p>
+        </div>
+        <div>
+            <p>Åbningstider: <br> Mandag-fredag: 10:30-22:00 <br>Lørdag: 12:00-23:00</p>
+        </div>
+        <div>
+            <p>Bistro Babushka <br> CVR: 123456789 <br> Tlf: +45 84848484</p>
+        </div>
+    </footer>
+
+
+    <script>
+        let menu;
+        let filter = "alle";
+        document.addEventListener("DOMContentLoaded", hentdata)
+
+
+        async function hentdata() {
+            const JASONData = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
+            menu = await JASONData.json();
+            addEventListenersToButtons();
+            visMenu();
+        }
+
+        function visMenu() {
+            console.log(menu);
+
+            const templatePointer = document.querySelector("template");
+            const listPointer = document.querySelector("#list");
+            const popop = document.querySelector("#popop");
+
+            listPointer.innerHTML = "";
+
+            //forside//
+            menu.feed.entry.forEach(mad => {
+                if (filter == "alle" || filter == mad.gsx$kategori.$t) {
+                    console.log(mad);
+
+                    const klon = templatePointer.cloneNode(true).content;
+
+                    klon.querySelector(".navn").textContent = mad.gsx$navn.$t;
+                    klon.querySelector("img").src = "imgs/small/" + mad.gsx$billede.$t + "-sm.jpg";
+                    klon.querySelector(".kort").textContent = mad.gsx$kort.$t;
+                    klon.querySelector(".pris").textContent = mad.gsx$pris.$t + " kr";
+
+                    klon.querySelector("article").addEventListener("click", () => visDetaljer(mad))
+                    listPointer.appendChild(klon);
+
+                }
+            })
+
+        }
+
+        document.querySelector("#luk").addEventListener("click", () => popop.style.display = "none");
+
+
+        //popup siden//
+        function visDetaljer(mad) {
+            console.log(mad);
+
+            popop.style.display = "block";
+            popop.querySelector("img").src = "imgs/large/" + mad.gsx$billede.$t + ".jpg";
+            popop.querySelector(".navn").textContent = mad.gsx$navn.$t;
+            popop.querySelector(".lang").textContent = mad.gsx$lang.$t;
+            popop.querySelector(".oprindelse").textContent = mad.gsx$oprindelse.$t;
+            popop.querySelector(".kategori").textContent = mad.gsx$kategori.$t;
+            popop.querySelector(".pris").textContent = mad.gsx$pris.$t + " kr";
+
+
+        }
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.addEventListener("click", filterBTNs);
+            });
+        }
+
+        function filterBTNs() {
+            filter = this.dataset.kategori;
+            document.querySelector("#emne").textContent = this.textContent;
+            visMenu();
+        }
+
+    </script>
+</body>
+
+</html>
